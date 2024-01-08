@@ -35,7 +35,7 @@ npm publish --access public
 
 ### Exemple d'Utilisation
 
-```
+```javascript
 import React, { useState } from 'react';
 import Select from './lib/components/Select';
 
