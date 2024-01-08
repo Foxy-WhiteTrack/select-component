@@ -1,7 +1,16 @@
 {
   "name": "ot-select-component",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Composant react pour un menu déroulant (select)",
+  "author": "Nancy Pontes aka One Trick",
+  "keywords": [
+    "select",
+    "plugin",
+    "react",
+    "ot",
+    "menu",
+    "déroulant"
+  ],
   "main": "dist/index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",

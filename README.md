@@ -5,6 +5,10 @@ Liens:
     [Adresse du projet sur Github](https://github.com/Foxy-WhiteTrack/select-component).
     [Adresse du projet sur npm](https://www.npmjs.com/package/ot-select-component).
 
+Versions:
+    NodeJS: v20.9.0
+    React: v18.2.0
+
 ## Commandes disponible après téléchargement:
 
 ### `npm start`
@@ -32,6 +36,11 @@ git push
 npm version patch 
 npm publish --access public
 ```
+
+### Etapes d'installation
+
+taper la commande
+``` npm i ot-select-component```
 
 ### Exemple d'Utilisation
 
