@@ -1,57 +1,82 @@
-# Getting Started with Create React App
+# Select-Component
+## Projet 14 du parcours Javascript react chez Openclassrooms
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Liens:
+    [Adresse du projet sur Github](https://github.com/Foxy-WhiteTrack/select-component).
+    [Adresse du projet sur npm](https://www.npmjs.com/package/ot-select-component).
 
-## Available Scripts
-
-In the project directory, you can run:
+## Commandes disponible après téléchargement:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Etapes et process pour la création de ce composant:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- npx create-react-app ot-select-component
+- npm install react react-dom --save
+- npm install --save-dev @babel/core @babel/cli babel-preset-react-app @babel/preset-react cross-env
+- npm install rimraf --save-dev
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- creation de .babelrc
+- creation de .eslintrc.json
 
-### `npm run eject`
+- npm run build
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Mise à jour du composant
+```
+npm run build
+git add .
+git commit -a -m "Mise à jour du package"
+git push
+npm version patch 
+npm publish --access public
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Exemple d'Utilisation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+import React, { useState } from 'react';
+import Select from './lib/components/Select';
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+import { datas } from "./lib/datas/datas";
 
-## Learn More
+export default function App() {
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    const firstState = datas[0].abbreviation;
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        dateOfBirth: "",
+        startDate: "",
+        street: "",
+        city: "",
+        state: firstState,
+        zipCode: "",
+    })
 
-### Code Splitting
+    const onChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({ ...prevData, [name]: value }));
+    };
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    return (
+        <div className="App">
+            <Select
+                id="state"
+                label="State"
+                options={datas}
+                haveLabel={true}
+                name="state"
+                value={formData.state}
+                onChange={onChange}
+            />
+        </div>
+    );
+}
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
 
 ### Making a Progressive Web App
 
